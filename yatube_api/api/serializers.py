@@ -1,11 +1,9 @@
 import base64
 
 from django.core.files.base import ContentFile
-
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator
-
 
 from posts.models import Comment, Post, Group, Follow, User
 
@@ -27,16 +25,6 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Post
-
-    def update(self, instance, validated_data):
-        instance.text = validated_data.get('text', instance.text)
-        instance.pub_date = validated_data.get('pub_date', instance.pub_date)
-        instance.author = validated_data.get(
-            'author', instance.author)
-        instance.image = validated_data.get('image', instance.image)
-        instance.group = validated_data.get('group', instance.group)
-        instance.save()
-        return instance
 
 
 class GroupSerializer(serializers.ModelSerializer):

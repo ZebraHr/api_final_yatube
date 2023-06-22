@@ -4,10 +4,10 @@ from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework import filters
+from rest_framework import mixins
 
 from posts.models import Group, Post
 from .permissions import IsOwnerOrReadOnly
-
 from .serializers import (PostSerializer,
                           GroupSerializer,
                           CommentSerializer,
@@ -44,7 +44,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         return self.get_post().comments.all()
 
 
-class FollowViewSet(viewsets.ModelViewSet):
+class FollowViewSet(mixins.CreateModelMixin,
+                    mixins.ListModelMixin,
+                    viewsets.GenericViewSet):
     serializer_class = FollowSerializer
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     filter_backends = (filters.SearchFilter, )
