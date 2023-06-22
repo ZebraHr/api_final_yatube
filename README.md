@@ -52,6 +52,26 @@ GET .../api/v1/posts/?offset=4&limit=6/
 ```
 Ответ
 ```
+[
+    {
+        "id": 2,
+        "author": "user",
+        "image": "string",
+        "text": "string",
+        "pub_date": "2023-06-19T09:43:41.387928Z",
+        "group": 1
+    },
+    {
+        "id": 3,
+        "author": "admin",
+        "image": null,
+        "text": "string",
+        "pub_date": "2023-06-19T09:45:17.757101Z",
+        "group": 3
+    },
+]
+```
+```
 {
 "count": 123,
 "next": "http://api.example.org/accounts/?offset=400&limit=100",
