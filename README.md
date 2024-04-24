@@ -122,7 +122,4 @@ GET .../api/v1/posts/{post_id}/comments/{id}/
 /redoc/
 ```
 ### Автор
-Анна Победоносцева.
-Студент Яндекс Практикума "Python-разаботчик плюс".
-г. Москва.
-GitHub: https://github.com/ZebraHr
+[Анна Победоносцева](https://github.com/ZebraHr) 
